@@ -10,6 +10,7 @@ module GrooveHQ
     format :json
 
     def initialize(access_token = nil)
+      # @access_token = access_token || ENV["GROOVEHQ_ACCESS_TOKEN"]
       access_token ||= ENV["GROOVEHQ_ACCESS_TOKEN"]
       self.class.default_options.merge!(headers: { "Authorization" => "Bearer #{access_token}" })
     end
@@ -19,5 +20,6 @@ module GrooveHQ
     #   response = HTTParty.get(url, headers: { "Authorization" => "Bearer #{@access_token}"})
     #   JSON.parse(response.body)
     # end
+
   end
 end
